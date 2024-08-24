@@ -34,9 +34,11 @@ def focus_loop(profile, focus_time):
                     except (psutil.NoSuchProcess, psutil.ZombieProcess):
                         pass
 
+        print(f"Remaining Minutes of Focus: {(focus_time - (time.time() - start_time))/60}")
+
 def start_focus_loop():
     focus_time = 60*10*int(input("How long do you want to Focus? (Multiple of 10 Minutes): "))
-    profile = input("What profile do you want to use? (Exact name of txt file): ")
+    profile = input("What profile do you want to use? (Exact name of txt file, including extension): ")
     profile = os.path.join(focus_dir, profile)
     if not os.path.exists(profile):
         print(f'"{profile}" Profile does not exist, please restart the program enter a proper profile.')
