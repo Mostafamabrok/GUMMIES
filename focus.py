@@ -50,5 +50,5 @@ def start_focus_loop():
 def run_focus(data_dir):
     setup(data_dir)
     start_focus_loop()
-
-run_focus("app_data")
+if __name__ == "__main__":
+    run_focus("app_data")
